@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1,
-  maximum-scale=5"
-    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="icon" href="devchallenges.png" />
 
@@ -34,18 +31,49 @@
       href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-
-    <title>Devchallenges</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <style>
+      * {
+        box-sizing: border-box;
+      }
       body {
         font-family: "Montserrat", sans-serif;
         background-color: #181719;
+        display: grid;
+        margin: 0;
+        padding-top: 5rem;
+        grid-template-rows: auto 1fr auto;
+      
+        height: 100vh;
+        color: #ffffff;
       }
-      .navbar-toggler,
-      .navbar-brand,
-      .nav-link {
-        color: #ffffff !important;
+      main {
+        padding-inline: 1rem;
+      }
+      /* ditch the ugle blue outline */
+      .navbar-toggler:focus,
+      .navbar-toggler:active {
+        outline: 0;
+      }
+
+      /* hide close when burger shown */
+      .navbar-toggler.collapsed .close-icon {
+        display: none;
+      }
+
+      .navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+        display: inline;
+      }
+
+      .navbar {
+        background-color: #181719;
       }
 
       .navbar-brand {
@@ -60,57 +88,244 @@
         border: 1px solid #ffffff;
       }
 
+      .navbar-nav {
+        margin-top: 10rem;
+        text-align: center;
+        gap: 20px;
+      }
+
       .nav-link {
         font-style: normal;
         font-weight: 700;
         font-size: 18px;
         line-height: 22px;
         text-decoration: underline;
+        text-underline-position: under;
       }
-      @media screen and (max-width: 920px) {
+
+      .collapse {
+        width: 100vh;
+        height: 100vh;
+      }
+
+      .navbar-toggler {
+        border: none;
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: none;
+      }
+
+      .mainTxt {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+      .mainTxt h1 {
+        font-family: "Lora", serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      .mainTxt p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        inline-size: 275px;
+        overflow-wrap: break-word;
+      }
+      .mainTxt span {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+      }
+      .mainTxt span:hover {
+        cursor: pointer
+      }
+      .main-photo-cont {
+        padding-inline: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        max-width: 737px;
+        max-height: 555px;
+      }
+
+      .main-photo {
+        width: 100%;
+        min-width: 351px;
+        min-height: 264.32px;
+      }
+
+      ._card {
+        width: 300px;
+        min-height: 138px;
+        max-width: 410px;
+        max-height: 189px;
+        display: flex;
+        flex-direction: column;
+        margin-top: -60px;
+        padding: 1em;
+      }
+      ._cardHead {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding-inline: 0.7em;
+        gap: 0.2em;
+      }
+      .photo-cont {
+        padding: 1px;
+        width: 62.2px;
+        max-width: 85px;
+        height: 52.68px;
+        max-height: 72px;
+      }
+      .photo-cont img {
+        width: 75%;
+        border-radius: 50%;
+      }
+      .desc {
+        margin-top: 6px;
+      }
+      .desc h3 {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        margin-bottom: 5px;
+      }
+
+      .desc p {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 12px;
+
+        color: #828282;
+      }
+      ._cardBody {
+        padding-inline: 1rem;
+      }
+      ._cardBody strong {
+        font-style: normal;
+        font-family: "Lora", serif;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 23px;
+      }
+
+      @media screen and (min-width: 990px) {
+        body {
+          margin-inline: 15rem;
+          grid-template-rows: auto 1fr auto;
+        }
+        .navbar{
+            margin-left: max(2rem, 7rem);
+        }
+        .navbar-nav {
+            margin-top: 0;
+            padding-right: 14rem;
+        }
+
         .collapse {
-          width: 100vh;
-          height: 100vh;
+          width: fit-content;
+          height: auto;
+        }
+        .nav-item {
+          margin-right: 5rem;
+        }
+        .nav-link {
+          text-decoration: none;
+        }
+        .mainTxt{
+            margin-top: 8rem;
+            width: fit-content
+        }
+        main {
+        
+            margin-top: 7rem!important;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            
         }
       }
     </style>
+
+    <title>Document</title>
   </head>
   <body>
     <div class="row">
-      <nav class="navbar navbar-expand-lg p-3">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">This Interior</a>
-          <button
-            class="navbar-toggler navbar-dark"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Colection</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Contact</a>
-              </li>
-            </ul>
-          </div>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-4 col-12">
+        <a class="navbar-brand" href="./"> Brand </a>
+        <button
+          class="navbar-toggler collapsed border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+          <div class="close-icon py-1">✖</div>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Colection</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Contact</a>
+            </li>
+          </ul>
         </div>
       </nav>
     </div>
-    <main class="row"></main>
-    <footer class="row"></footer>
+
+    <main class="row">
+      <div class="mainTxt">
+        <h1>Modern interior</h1>
+        <p>
+          A full-Service residential & commercial interior design and staging
+          company offering professional organizing & eco-services.
+        </p>
+        <span>Read More ---></span>
+      </div>
+      <div class="main-photo-cont">
+        <img class="main-photo" src="./photo1.png" alt="" />
+        <div class="_card bg-dark">
+          <div class="_cardHead">
+            <div class="photo-cont"><img src="./photo2.png" alt="" /></div>
+            <div class="desc">
+              <h3>Aliza Webber</h3>
+              <p>Interior designer</p>
+            </div>
+          </div>
+          <div class="_cardBody">
+            <strong
+              >Designed in 2020 by <br />
+              Aliza Webber</strong
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="row">
+      <p class="d-flex justify-content-center">created by username - devChallenges.io</p>
+    </footer>
   </body>
 </html>
