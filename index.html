@@ -50,12 +50,14 @@
         margin: 0;
         padding-top: 5rem;
         grid-template-rows: auto 1fr auto;
+        grid-template-columns: 1fr;
       
         height: 100vh;
         color: #ffffff;
       }
       main {
         padding-inline: 1rem;
+        padding-top: 5rem;
       }
       /* ditch the ugle blue outline */
       .navbar-toggler:focus,
@@ -72,9 +74,7 @@
         display: inline;
       }
 
-      .navbar {
-        background-color: #181719;
-      }
+  
 
       .navbar-brand {
         font-family: "Crimson Pro", serif;
@@ -228,9 +228,32 @@
         .navbar{
             margin-left: max(2rem, 7rem);
         }
+        .navbar-brand{
+          font-size: 14px;
+          line-height: 16px;
+        }  
+
+
         .navbar-nav {
             margin-top: 0;
             padding-right: 14rem;
+        }
+
+
+        .mainTxt h1{
+          font-size: 48px;
+          line-height: 61px;
+        }
+
+        .mainTxt p {
+          font-size: 24px;
+          line-height: 29px;
+          inline-size: 300px;
+        }
+
+        .mainTxt span{
+          font-size: 18px;
+          line-height: 22px;
         }
 
         .collapse {
@@ -247,14 +270,6 @@
             margin-top: 8rem;
             width: fit-content
         }
-        main {
-        
-            margin-top: 7rem!important;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            
-        }
       }
     </style>
 
@@ -263,7 +278,7 @@
   <body>
     <div class="row">
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-4 col-12">
-        <a class="navbar-brand" href="./"> Brand </a>
+        <a class="navbar-brand" href="./"> This Interior </a>
         <button
           class="navbar-toggler collapsed border-0"
           type="button"
@@ -302,7 +317,8 @@
           A full-Service residential & commercial interior design and staging
           company offering professional organizing & eco-services.
         </p>
-        <span>Read More ---></span>
+        <div><span>Read More </span > <svg xmlns="http://www.w3.org/2000/svg" width="4em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M13.293 7.293a.999.999 0 0 0 0 1.414L15.586 11H8a1 1 0 0 0 0 2h7.586l-2.293 2.293a.999.999 0 1 0 1.414 1.414L19.414 12l-4.707-4.707a.999.999 0 0 0-1.414 0z"/></svg></div>
+        
       </div>
       <div class="main-photo-cont">
         <img class="main-photo" src="./photo1.png" alt="" />
@@ -325,7 +341,7 @@
     </main>
 
     <footer class="row">
-      <p class="d-flex justify-content-center">created by username - devChallenges.io</p>
+      <p class="d-flex justify-content-center mt-5">created by username - devChallenges.io</p>
     </footer>
   </body>
 </html>
